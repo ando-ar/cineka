@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="cinekaは、好きな映画を最大9本選び、画像にして共有する開発中のWebアプリです。将来は他のユーザーの映画リストをもとにした推薦も予定しています。">
+  <meta name="theme-color" content="#f1f2fc">
+  <title>cineka — 好きな映画から、次の一本へ。</title>
+  <style>
+    :root { color-scheme: light; --paper: #f1f2fc; --ink: #242749; --muted: #565b79; --accent: #414eb7; --line: #cbd0e5; --white: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; line-height: 1.9; }
+    a { color: var(--accent); text-underline-offset: .25em; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+    .skip { position: absolute; top: -100px; left: 1rem; background: white; padding: .5rem 1rem; }
+    .skip:focus { top: 1rem; }
+    .wrap { width: min(1040px, 100% - 48px); margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 28px; }
+    .wordmark { font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-weight: 700; letter-spacing: -.06em; }
+    .status { color: var(--muted); font-size: 13px; }
+    .hero { display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 64px; padding-block: 64px 88px; }
+    h1 { font-size: clamp(32px, 4.5vw, 50px); line-height: 1.55; letter-spacing: -.045em; margin: 0 0 24px; }
+    p { margin: 0 0 18px; }
+    .intro { max-width: 34em; color: var(--muted); }
+    .note { font-size: 13px; color: var(--muted); }
+    figure { margin: 0; }
+    .collection { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 24px; background: var(--white); border-radius: 8px; transform: rotate(3deg); box-shadow: 0 16px 40px #24274910; }
+    .film { aspect-ratio: 2 / 3; border-radius: 2px; background: #a0afd0; }
+    .film:nth-child(3n+2) { background: #d4b4b7; }
+    .film:nth-child(3n) { background: #d1cba9; }
+    .film:nth-child(n+4):nth-child(-n+6) { background: #a5c0b9; }
+    .film:nth-child(5) { background: #afb0d4; }
+    .film:nth-child(8) { background: #b5c4df; }
+    figcaption { text-align: center; margin-top: 24px; font-size: 12px; color: var(--muted); }
+    section { padding-block: 44px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 24px; font-size: 23px; line-height: 1.6; }
+    h3 { font-size: 18px; margin: 0 0 10px; }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .features p { font-size: 15px; color: var(--muted); margin: 0; }
+    .future { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; }
+    .future p { max-width: 40em; }
+    .english { max-width: 72ch; color: var(--muted); font-size: 15px; }
+    footer { padding-block: 36px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    footer img { width: 130px; height: auto; display: block; margin-bottom: 18px; }
+    footer p { margin-bottom: 8px; }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 40px); }
+      header { align-items: baseline; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 32px 48px; }
+      figure { width: min(280px, 85%); margin: 0 auto; }
+      .features, .future { grid-template-columns: 1fr; gap: 24px; }
+      .future h2 { margin: 0; }
+      section { padding-block: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <div class="wrap">
+    <header>
+      <span class="wordmark">cineka</span>
+      <span class="status">開発中 / 仮称</span>
+    </header>
+    <main id="main">
+      <div class="hero">
+        <div>
+          <h1>好きな映画から、<br>次の一本へ。</h1>
+          <p class="intro">あなたの好きな映画を、最大9本。<br>選んで、並べて、一枚の画像に。<br>cinekaは、映画の好みを共有するWebアプリです。</p>
+          <p class="note">現在開発中です。アプリはまだ一般公開していません。<br>サービス名・機能・公開時期は変更になる場合があります。</p>
+        </div>
+        <figure>
+          <div class="collection" aria-hidden="true">
+            <span class="film"></span><span class="film"></span><span class="film"></span>
+            <span class="film"></span><span class="film"></span><span class="film"></span>
+            <span class="film"></span><span class="film"></span><span class="film"></span>
+          </div>
+          <figcaption>映画を並べた画像のイメージ。実際のポスターではありません。</figcaption>
+        </figure>
+      </div>
+      <section aria-labelledby="features-title">
+        <h2 id="features-title">最初の公開でできること</h2>
+        <div class="features">
+          <div><h3>好きな映画を選ぶ</h3><p>映画を検索し、好きな作品を1〜9本選んで、自分のリストを作れます。</p></div>
+          <div><h3>画像にして共有する</h3><p>選んだ映画のポスターと作品名を一枚にまとめ、画像をダウンロードしてSNSで共有できます。</p></div>
+          <div><h3>リストを保存する</h3><p>ログインしてリストを保存し、あとから開いたり、作品を選び直したりできます。</p></div>
+        </div>
+      </section>
+      <section class="future" aria-labelledby="future-title">
+        <h2 id="future-title">その先に、<br>誰かの好きな映画を。</h2>
+        <div>
+          <p>将来は、他のユーザーが保存した映画リストをもとに、あなたに映画を推薦する機能を予定しています。作品単体の似ているところだけでなく、人が選んだ映画の組み合わせから、新しい一本に出会える体験を目指します。</p>
+          <p class="note">将来の構想です。初期公開には含みません。保存済みリストの推薦への利用は、参加への同意を確認したうえで行う予定です。</p>
+        </div>
+      </section>
+      <section aria-labelledby="about-title">
+        <h2 id="about-title" lang="en">About cineka</h2>
+        <div class="english" lang="en">
+          <p>cineka (working title) is a non-commercial web application currently under development. Users will be able to search for movies, select up to nine favorite films, save their selection, and generate a poster collage for download and sharing on social media.</p>
+          <p>A future feature will recommend movies using film lists saved by other users, with participation based on user consent. This recommendation feature is not part of the initial release.</p>
+          <p>We plan to use the TMDB API to search for movies and retrieve titles, release dates, and poster images. This page introduces the project; the application is not yet publicly available.</p>
+        </div>
+      </section>
+    </main>
+    <footer aria-label="クレジット">
+      <a href="https://www.themoviedb.org/"><img src="tmdb.svg" width="273" height="36" alt="TMDB"></a>
+      <p>映画情報・ポスターの取得にはTMDB APIを利用する予定です。この紹介ページでは映画データ・ポスターを使用していません。</p>
+      <p lang="en">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      <p>cineka（仮称）</p>
+    </footer>
+  </div>
+</body>
+</html>
