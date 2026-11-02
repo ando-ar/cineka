@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="cinekaは、好きな映画を最大9本選び、画像にして共有する開発中のWebアプリです。将来は他のユーザーの映画リストをもとにした推薦も予定しています。">
-  <meta name="theme-color" content="#f1f2fc">
-  <title>cineka — 好きな映画から、次の一本へ。</title>
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="cineka is a movie list sharing app under development. Choose up to nine favorite films, share a poster collage, and discover future recommendations inspired by other users’ lists.">
+<meta name="theme-color" content="#f1f2fc">
+<title>cineka — From favorite films to your next discovery.</title>
+<style>
     :root { color-scheme: light; --paper: #f1f2fc; --ink: #242749; --muted: #565b79; --accent: #414eb7; --line: #cbd0e5; --white: #fff; }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; line-height: 1.9; }
@@ -52,61 +52,79 @@
       .future h2 { margin: 0; }
       section { padding-block: 32px; }
     }
-  </style>
+  
+    body { font-family: "Segoe UI", "Yu Gothic", Meiryo, sans-serif; }
+    h1, .intro, #future-title { white-space: pre-line; }
+    .header-tools { display: flex; align-items: center; gap: 24px; }
+    .language-switch { display: flex; gap: 4px; }
+    .language-switch button { border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--muted); padding: 6px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+    .language-switch button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--white); }
+    button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    @media (max-width: 700px) { .header-tools { flex-direction: column; align-items: flex-end; gap: 6px; } }
+</style>
 </head>
 <body>
-  <a class="skip" href="#main">本文へ移動</a>
-  <div class="wrap">
-    <header>
-      <span class="wordmark">cineka</span>
-      <span class="status">開発中 / 仮称</span>
-    </header>
-    <main id="main">
-      <div class="hero">
-        <div>
-          <h1>好きな映画から、<br>次の一本へ。</h1>
-          <p class="intro">あなたの好きな映画を、最大9本。<br>選んで、並べて、一枚の画像に。<br>cinekaは、映画の好みを共有するWebアプリです。</p>
-          <p class="note">現在開発中です。アプリはまだ一般公開していません。<br>サービス名・機能・公開時期は変更になる場合があります。</p>
-        </div>
-        <figure>
-          <div class="collection" aria-hidden="true">
-            <span class="film"></span><span class="film"></span><span class="film"></span>
-            <span class="film"></span><span class="film"></span><span class="film"></span>
-            <span class="film"></span><span class="film"></span><span class="film"></span>
-          </div>
-          <figcaption>映画を並べた画像のイメージ。実際のポスターではありません。</figcaption>
-        </figure>
-      </div>
-      <section aria-labelledby="features-title">
-        <h2 id="features-title">最初の公開でできること</h2>
-        <div class="features">
-          <div><h3>好きな映画を選ぶ</h3><p>映画を検索し、好きな作品を1〜9本選んで、自分のリストを作れます。</p></div>
-          <div><h3>画像にして共有する</h3><p>選んだ映画のポスターと作品名を一枚にまとめ、画像をダウンロードしてSNSで共有できます。</p></div>
-          <div><h3>リストを保存する</h3><p>ログインしてリストを保存し、あとから開いたり、作品を選び直したりできます。</p></div>
-        </div>
-      </section>
-      <section class="future" aria-labelledby="future-title">
-        <h2 id="future-title">その先に、<br>誰かの好きな映画を。</h2>
-        <div>
-          <p>将来は、他のユーザーが保存した映画リストをもとに、あなたに映画を推薦する機能を予定しています。作品単体の似ているところだけでなく、人が選んだ映画の組み合わせから、新しい一本に出会える体験を目指します。</p>
-          <p class="note">将来の構想です。初期公開には含みません。保存済みリストの推薦への利用は、参加への同意を確認したうえで行う予定です。</p>
-        </div>
-      </section>
-      <section aria-labelledby="about-title">
-        <h2 id="about-title" lang="en">About cineka</h2>
-        <div class="english" lang="en">
-          <p>cineka (working title) is a non-commercial web application currently under development. Users will be able to search for movies, select up to nine favorite films, save their selection, and generate a poster collage for download and sharing on social media.</p>
-          <p>A future feature will recommend movies using film lists saved by other users, with participation based on user consent. This recommendation feature is not part of the initial release.</p>
-          <p>We plan to use the TMDB API to search for movies and retrieve titles, release dates, and poster images. This page introduces the project; the application is not yet publicly available.</p>
-        </div>
-      </section>
-    </main>
-    <footer aria-label="クレジット">
-      <a href="https://www.themoviedb.org/"><img src="tmdb.svg" width="273" height="36" alt="TMDB"></a>
-      <p>映画情報・ポスターの取得にはTMDB APIを利用する予定です。この紹介ページでは映画データ・ポスターを使用していません。</p>
-      <p lang="en">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-      <p>cineka（仮称）</p>
-    </footer>
-  </div>
+<a data-ja="本文へ移動" class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header>
+<span class="wordmark">cineka</span>
+<div class="header-tools">
+<span data-ja="開発中 / 仮称" class="status">In development / Working title</span>
+<div class="language-switch" role="group" aria-label="Language / 言語">
+<button type="button" data-language="ja" lang="ja" aria-label="日本語に切り替え" aria-pressed="false">JP</button>
+<button type="button" data-language="en" lang="en" aria-label="Switch to English" aria-pressed="true">EN</button>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="hero"><div>
+<h1 data-ja="好きな映画から、
+次の一本へ。" >Your favorite films.
+Your next discovery.</h1><p data-ja="あなたの好きな映画を、最大9本。
+選んで、並べて、一枚の画像に。
+cinekaは、映画の好みを共有するWebアプリです。" class="intro">Choose up to nine films you love.
+Bring them together in one image.
+cineka is a web app for sharing your taste in film.</p><p data-ja="現在開発中です。アプリはまだ一般公開していません。サービス名・機能・公開時期は変更になる場合があります。" class="note">Currently in development and not yet publicly available. The name, features, and release date may change.</p>
+</div><figure>
+<div class="collection" aria-hidden="true"><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span><span class="film"></span></div><figcaption data-ja="映画を並べた画像のイメージ。実際のポスターではありません。" >Illustrative layout only. These are not movie posters.</figcaption>
+</figure></div>
+<section aria-labelledby="features-title">
+<h2 data-ja="最初の公開でできること" id="features-title">Planned for the first release</h2><div class="features"><div><h3 data-ja="好きな映画を選ぶ" >Pick your favorites</h3><p data-ja="映画を検索し、好きな作品を1〜9本選んで、自分のリストを作れます。" >Search for movies and choose one to nine favorites to create your own list.</p></div><div><h3 data-ja="画像にして共有する" >Share a picture</h3><p data-ja="選んだ映画のポスターと作品名を一枚にまとめ、画像をダウンロードしてSNSで共有できます。" >Combine movie posters and titles into one image, then download it to share on social media.</p></div><div><h3 data-ja="リストを保存する" >Keep your list</h3><p data-ja="ログインしてリストを保存し、あとから開いたり、作品を選び直したりできます。" >Sign in to save your selection, revisit it later, and change your picks whenever you like.</p></div></div></section>
+<section class="future" aria-labelledby="future-title">
+<h2 data-ja="その先に、
+誰かの好きな映画を。" id="future-title">Discover films
+through someone else’s favorites.</h2><div><p data-ja="将来は、他のユーザーが保存した映画リストをもとに、あなたに映画を推薦する機能を予定しています。作品単体の似ているところだけでなく、人が選んだ映画の組み合わせから、新しい一本に出会える体験を目指します。" >In the future, cineka will recommend movies based on film lists saved by other users. By exploring the combinations people choose, we hope to help you discover a new favorite beyond the similarities between individual films.</p><p data-ja="将来の構想です。初期公開には含みません。保存済みリストの推薦への利用は、参加への同意を確認したうえで行う予定です。" class="note">This is a future feature and is not part of the initial release. We plan to ask for users’ consent before using their saved lists for recommendations.</p></div></section>
+<section aria-labelledby="about-title">
+<h2 data-ja="cinekaについて" id="about-title">About cineka</h2><div class="english"><p data-ja="cineka（仮称）は、現在開発中の非商用Webアプリです。好きな映画を最大9本選んで保存し、共有用のポスター画像を作る機能を提供予定です。他のユーザーのリストを用いた映画推薦は、将来の公開を予定しています。" >cineka (working title) is a non-commercial web application currently under development. It will let users select and save up to nine favorite films and create a shareable poster collage, with recommendations based on other users’ lists planned for a later release.</p><p data-ja="映画検索と、作品名・公開日・ポスターの取得にはTMDB APIを利用する予定です。このページはプロジェクトの紹介用であり、アプリはまだ一般公開していません。" >We plan to use the TMDB API to search for movies and retrieve titles, release dates, and poster images. This page introduces the project; the application is not yet publicly available.</p></div></section>
+</main>
+<footer aria-label="Credits">
+<a href="https://www.themoviedb.org/"><img src="tmdb.svg" width="273" height="36" alt="TMDB"></a>
+<p data-ja="映画情報・ポスターの取得にはTMDB APIを利用する予定です。この紹介ページでは映画データ・ポスターを使用していません。" >Movie information and posters will be provided by the TMDB API. No movie data or posters are used on this introduction page.</p>
+<p lang="en">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+<p data-ja="cineka（仮称）" >cineka (working title)</p>
+</footer>
+</div>
+<script>
+  const translatedElements = [...document.querySelectorAll('[data-ja]')];
+  const englishText = new Map(translatedElements.map(element => [element, element.textContent]));
+  const description = document.querySelector('meta[name="description"]');
+  const englishDescription = description.content;
+  const englishTitle = document.title;
+  document.querySelectorAll('[data-language]').forEach(button => {
+    button.addEventListener('click', () => {
+      const language = button.dataset.language;
+      document.documentElement.lang = language;
+      translatedElements.forEach(element => {
+        element.textContent = language === 'ja' ? element.dataset.ja : englishText.get(element);
+      });
+      document.querySelectorAll('[data-language]').forEach(option => {
+        option.setAttribute('aria-pressed', String(option.dataset.language === language));
+      });
+      document.title = language === 'ja' ? 'cineka — 好きな映画から、次の一本へ。' : englishTitle;
+      description.content = language === 'ja' ? 'cinekaは、好きな映画を最大9本選び、画像にして共有する開発中のWebアプリです。将来は他のユーザーの映画リストをもとにした推薦も予定しています。' : englishDescription;
+      document.querySelector('footer').setAttribute('aria-label', language === 'ja' ? 'クレジット' : 'Credits');
+    });
+  });
+</script>
 </body>
 </html>
